@@ -1,0 +1,814 @@
+
+// Custom Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+$theme-font:'Raleway', sans-serif;
+$brand-color:#A204F0;
+$gcolor:#949494;
+$ocolor:#E8620B;
+$rcolor:#A52020;
+$bcolor:#000;
+$wcolor:#fff;
+
+@mixin transition($property,$time,$effect){
+  	-webkit-transition: $property $time $effect;
+	    -moz-transition: $property $time $effect;
+	     -ms-transition: $property $time $effect;
+	      -o-transition: $property $time $effect;
+	         transition: $property $time $effect;
+}
+
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	   -moz-transform: $transforms;
+	    -ms-transform: $transforms;
+	     -o-transform: $transforms;
+            transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin translate ($x,$y) {
+  @include transform(translate($x,$y));
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+html {overflow-x: hidden;}
+
+body {
+  overflow-x: hidden;
+  font-family:$theme-font; 
+}
+
+ul li {list-style: none;}
+
+.lfloat{float:left;}
+
+.rfloat{float:right;}
+
+.dropdown:hover>.dropdown-menu{
+	display:block;
+}
+
+a:hover, a:visited, a:focus {
+  text-decoration: none;
+}
+
+.row-divider{margin-top: 25px;}
+
+.section-padding{padding: 4% 0;}
+
+.section-header{
+    padding-bottom:
+     15px;
+	text-align: center;
+
+	span{
+		font-size: 22px;
+    	font-weight: 600;
+	}
+
+	a{
+		float: right;
+		font-size: 14px;
+		margin-right: 40px;
+	}
+}
+
+.btn-product{
+    background: transparent;
+    border: 1px solid $brand-color;
+    border-radius: 0;
+    color: $brand-color;
+    padding: 8px 10px;
+
+	&:hover{
+		background:$brand-color;
+		border: 1px solid $brand-color;
+		color: $wcolor;
+		@include transition(all,.5s,ease-in-out);
+	}
+}
+
+// CSS For Top Toolbar Section
+
+.toolbar{
+
+	position: absolute;
+	width: 100%;
+	padding: 15px;
+
+	.currency-form{
+
+		float: left;
+
+		form{
+
+			h5{cursor: pointer;}
+			
+			.dropdown-menu{border-radius: 0;}
+
+			.dropdown-menu>li>a:hover{
+			    color: $wcolor;
+			    background-color: #262626;
+			}
+		}
+	}
+
+	.shop-operation{
+
+		float: right;
+		width: 31%;
+    	margin-top: 7px;
+
+    	span{
+    		color: $gcolor;
+    		float: left;
+    		font-size: 14px;
+    		margin-right: 10px;
+    	}
+
+		ul li{display: inline-block;}
+
+		ul li a{
+			background: url(../images/op-link.gif);
+			background-position: 95% 50%;
+			background-repeat: no-repeat;
+			font-size: 14px;
+		    font-weight: 600;
+		    padding-right: 10px;
+		    text-transform: uppercase;
+		    @include transition(all,.5s,ease);
+		}
+
+		ul li a:hover{color: $brand-color;}
+
+	}
+}
+
+// *******************************
+
+// CSS For Main Navbar Section
+
+#main-navbar{
+    margin-top: 5%;
+
+    .logo{
+    	float: left;
+    }
+
+    .search-bar{
+    	float: left;
+	    width: 40%;
+	    margin-top: 27px;
+	    margin-left: 20%;
+    }
+
+    .cart-icon{
+    	float: right;
+	    font-size: 21px;
+	    margin-top: 30px;
+	    margin-right: 20px;
+
+	    a{color: $bcolor;}
+
+	    .cart-dropdown-menu{
+	    	width: 275px;
+	    	margin-left: -210px;
+	    	border-radius: 0;
+	    	text-align: center;
+
+	    	.shopping-button{
+	    		margin-top: 15px;
+
+	    		a{color: $wcolor;}
+	    	}
+
+	    	.media{
+	    		text-align: left;
+    			margin-left: 15px;
+
+    			.media-body{
+    				span{
+    					font-size: 17px;
+    					font-weight: 600;
+    				}
+
+    				p{margin-top: 10px;}
+    			}
+	    	}
+	    }
+    }
+
+    .menu-list{
+	    margin-top: -20px;
+    	margin-left: 32%;
+		
+		.nav>li>a{
+			color: $gcolor;
+		    font-weight: 600;
+		}
+		.nav>li>a i{font-size: 8px;}
+
+    	.nav>li>a:hover {
+    		color: $bcolor;
+    		background-color: transparent;
+    	}
+
+    	.second-dropdown-menu{
+			
+			border-radius: 0;
+
+    		i{
+    			font-size: 10px;
+			    float: right;
+			    margin-top: 5px;
+    		}
+
+    		.third-dropdown-menu{
+    			border-radius: 0;
+    			top: 0;
+    			left: 90%;
+    		}
+    	}
+    }
+}
+
+#mobile-navbar{display: none;}
+
+.fixed-navbar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: $wcolor;
+	border-bottom:1px solid #ddd;
+	margin-top:0 !important;
+	z-index:40;
+}
+
+// *******************************
+
+// CSS For New Product Section
+
+.ribbon{
+	background: #0741ea;
+    color: #fff;
+    width: 0; 
+	height: 0; 
+    padding: 3px 0;
+    border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	border-right: 5px solid #0741ea;
+}
+
+.ribbon:before{
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	border-right: 5px solid #0741ea;
+}
+
+.five-column{
+	float:left;
+	padding: 0 10px;
+	width:20%;
+}
+
+.product{
+	padding: 10px 0;
+	text-align: center;
+    width: 100%;
+
+    .product-name{
+    	padding: 10px 0;
+
+    	a{
+    		color: $bcolor;
+		    font-size: 17px;
+    		font-weight: 600;
+
+    		&:hover{text-decoration: underline;}
+    	}
+    }
+    .product-photo{
+    	img{
+    		height: 200px;
+    		margin:0 auto;
+    	}
+    }
+    .product-discount{
+    	padding: 10px 0;
+
+    	a{
+    		background: #7025e4;
+		    color: #fff;
+		    padding: 5px;
+    	}
+    }
+    .product-price{
+    	padding: 10px 0;
+
+    	.old-price{color: $rcolor;}
+    	.new-price{color: $gcolor;}
+    }
+	.product-button{
+		transform: translateY(-60px);
+    	visibility: hidden;
+    	@include transition(all,.5s,ease-in);
+		a{
+			font-size: 12px;
+    		font-weight: 600;
+		}
+	}
+
+	&:hover{
+		box-shadow: 0 0 8px #ddd;
+		cursor: pointer;
+	}
+}
+
+.product:hover .product-button{
+	transform: translateY(0);
+	visibility: visible;
+}
+
+
+.featured-img:hover .npf2{
+	display: block;
+}
+.featured-img:hover .npf{
+	display: none;
+}
+.npf{@include transition(all,1s,ease);}
+
+.npf2{
+	display: none;
+}
+
+
+// ***************************************
+
+// CSS For Why Us Section
+
+.why-us{
+	background: #eaeaea;
+    margin-top: 60px;
+
+    &:before{
+    	content: "";
+    	width: 0;
+	    height: 0;
+	    border-style: solid;
+	    border-width: 80px 100px 0 100px;
+	    border-color: #fff transparent transparent transparent;
+	    margin-left: 43%;
+    }
+}
+
+.whyus-info{
+	
+	.whyus-icon{
+		width: 70px;
+	    height: 70px;
+	    background: #0b5fa3;
+	    color: #fff;
+	    text-align: center;
+	    line-height: 70px;
+	    border-radius: 50%;
+	    margin: 0 auto;
+	}
+
+	h5{
+		color: $gcolor;
+		font-size: 16px;
+		font-weight: 600;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	p{text-align: justify;}
+}
+
+// CSS For Popular Brand Section
+
+.popular-brand{
+
+	.section-header{
+		p{
+			max-width: 1000px;
+		    margin: 0 auto;
+		    margin-top: 15px;
+		    margin-bottom: 15px;
+		}
+	}
+
+	.brand{
+
+		.item{
+			padding: 1px;
+			img{box-shadow: 0 0 10px #ddd;}
+		}
+	}
+}
+
+// *********************************************
+
+// CSS For Extra Footer Section
+
+.extra-footer{
+	background: #222337;
+	color: $gcolor;
+}
+
+.social{
+	
+	margin-bottom: 15px;
+
+	li{
+		display: inline-block;
+		margin: 0 5px;
+	}
+
+	a{
+		width: 32px;
+	    height: 32px;
+	    color: $wcolor;
+	    border-radius: 50%;
+	    display: inline-block;
+	    line-height: 32px;
+	    margin: 0 10px;
+	    text-align: center;
+	    @include transition(all,.3s,ease);
+	}
+
+	a:hover{
+		@include rotate(-360);
+	}
+
+	.face{background: #3B5998;}
+	.twit{background: #4099FF;}
+	.tube{background: #CD2830;}
+	.drib{background: #E35E90;}
+}
+
+.newsletter{
+
+	margin-bottom: 15px;
+
+	form{width: 85%;}
+
+	.btn-news{
+		color: $brand-color;
+	    background: $wcolor;
+	    border-radius:0;
+	    font-weight: 600;
+	    padding: 5px;
+	    @include transition(all,1s,ease);
+
+	    &:hover{
+	    	color: $wcolor;
+	    	background:$brand-color;
+	    	border-left:1px solid $wcolor;
+	    }
+	}
+
+	.form-control{
+		height: 32px;
+		background: transparent;
+		color: $wcolor;
+	    background-image: none;
+	    border: 1px solid $wcolor;
+	    border-radius: 0; 
+	    box-shadow: none;
+
+	    &::placeholder{
+	    	color: $wcolor;
+	    }
+	}
+}
+
+.company-info{
+
+	ul li{margin: 10px 0;}
+
+	ul li a{
+		color: $gcolor;
+
+		&:hover{text-decoration: underline;}
+	}
+}
+
+.payment-option{
+
+	margin-top: 25px;
+	margin-left: 35%;
+
+	ul li{
+		float: left;
+    	margin:10px;
+	}
+
+	ul li a{
+		color: $gcolor;
+		display: block;
+		text-decoration: underline;
+
+		&:hover{text-decoration: none;}
+	}
+}
+
+footer{
+	background: #191A2F;
+	color: $wcolor;
+    padding: 25px 0;
+    text-align: center;
+
+    a{
+    	color: #6B489C;
+
+    	&:hover{color: $wcolor;}
+    }
+}
+
+
+// CSS For CataLog Page
+
+.back-link{display: none;}
+
+.product-option{
+	width: 20%;
+    min-height: 1156px;
+    float: left;
+    padding-top: 20px;
+    padding-left: 20px;
+    position: absolute;
+
+    .back-link{
+
+    	.breadcrumb{
+    		padding: 0;
+    		background-color: transparent;
+    		border-radius: 0;
+    		font-size: 13px;
+
+    		li a{
+    			color: #8e8e8e;
+    			text-decoration: underline;
+    		}
+
+    		.active{
+    			color: $bcolor;
+    			font-weight: 600;
+    		}
+    	}
+    }
+
+    h4{
+    	color: $bcolor;
+	    font-size: 20px;
+	    font-weight: 600;
+    }
+
+    hr{
+    	border-top: 1px solid #c3c1c1;
+    	margin-right: 10px;
+    }
+
+    .price,.color,.size{
+
+    	h5{
+    		color: $bcolor;
+		    font-size: 16px;
+		    font-weight: 500;
+    	}
+
+    	ul li{
+    		margin-top: 5px;
+		    margin-left: 10px;
+    	}
+
+    	ul li a{
+    		color: $gcolor;
+    		cursor: pointer;
+
+    		&:hover{text-decoration: underline;}
+    	}
+    }
+}
+
+.product-list{
+	
+	width: 80%;
+    margin-left: 20%;
+    padding-top: 15px;
+
+    h3{
+    	font-size: 22px;
+	    font-weight: 600;
+	    margin-left: 20px;
+    }
+
+	.sort-product{
+	
+	    width: 98%;
+	    background: #EEEEEE;
+	    margin-bottom: 25px;
+	    padding: 5px;
+
+		select{
+			width: 12%;
+		    border-radius: 0;
+		    box-shadow: none;
+	    	display: inline-block;
+	    	font-size: 13px;
+	    	height: 30px;
+		}
+
+		.grid-view{
+			float: left;
+		    font-size: 20px;
+		    margin: 5px 35px;
+		    padding-right: 5px;
+		    border-right: 2px solid #fff;
+		    color: $ocolor;
+		}
+
+		.sort-text{float: none;}
+
+		span{
+			float: right;
+		    margin-top: 5px;
+			margin-right: 35px;
+		}
+
+		.page-link{
+			float: right;
+    		margin-top: -18px;
+		}
+	}
+
+	.product{width: 55%;}
+
+}
+
+// ********************************
+
+// CSS For Product Details Page
+
+.product-details{
+
+	.product-info{
+		float: left;
+    	width: 75%;
+
+    	.pdd-photo{width: 85%;}
+
+    	.pdd-id{
+
+    		span{
+    			color: $brand-color;
+    			font-weight: 600;
+    		}
+    	}
+
+    	.pdd-description{
+
+    		ul li{margin-top: 10px;}
+    	}
+
+    	.pdd-pndr{
+    		margin: 10px 0;
+
+    		s{margin-right: 20px;}
+    	}
+
+    	.pdd-button{
+
+    		.form-control{
+    			height: 38px;
+    			text-align: center;
+    		}
+    	}
+
+    	.vertical-pill{
+    		margin-top: 30px;
+
+    		.nav-pills{
+    			background: #eaeaea;
+    			width: 85%;
+    			font-size: 18px;
+			    font-weight: 600;
+    			text-align: center;
+
+    			li>a{border-radius: 0;}
+
+    			li.active>a,li.active>a:focus,
+    			li.active>a:hover{
+    				color: $bcolor;
+    				background-color: $wcolor;
+    				border-bottom: 1px solid #CCCCCC;
+				    border-left: 1px solid #CCCCCC;
+				    border-top: 1px solid #CCCCCC;
+    			}
+    		}
+
+    		.tab-content{
+    			border-top: 1px solid #CCCCCC;
+			    margin-left: -96px;
+			    padding-top: 15px;
+			    padding-left: 35px;
+    		}
+    	}
+	}
+
+	.add-section{
+		border-left: 1px solid #eaeaea;
+        width: 25%;
+        height: auto;
+        float: left;
+        padding: 20px 0;
+
+	    .add-box{
+	    	width: 100%;
+		    height: auto;
+		    text-align: center;
+	    }
+
+	    .related-product{
+
+	    	h3{
+	    		text-align: center;
+	    		font-weight: 600;
+	    	}
+	    	
+	    	.media{padding-left:25px;}
+	    }
+
+	    hr{border-top: 1px solid #fff;}
+	}
+}
+
+
+// CSS For Cart Page
+
+.shopping-cart{
+
+	th,tr{text-align: center;}
+
+	.form-control{text-align: center;}
+
+	td:nth-child(6){padding:20px 0;}
+
+	span:nth-child(1) a{
+		background: $brand-color;
+    	color: $wcolor;
+	    margin-right: 10px;
+	    padding: 7px 10px;
+	}
+
+	span:nth-child(2) a{
+		background: #fa1818;
+    	color: $wcolor;
+	    margin-right: 10px;
+	    padding: 7px 10px;
+	}
+
+	.shopping-cart-footer{
+
+		.shopping-button{float: left;}
+
+		.shopping-total{
+			width: 23%;
+    		float: right;
+		}
+	}
+}
+
+// ************************************
+
+
+// CSS For MagnificPopup
+
+
+// padding-bottom and top for image
+.mfp-no-margins img.mfp-img {
+	padding: 0;
+}
+// position of shadow behind the image 
+.mfp-no-margins .mfp-figure:after {
+	top: 0;
+	bottom: 0;
+}
+// padding for main container 
+.mfp-no-margins .mfp-container {
+	padding: 0;
+}
